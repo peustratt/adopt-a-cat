@@ -15,7 +15,7 @@ const Cat = ({ cat, setCats, handleDeleteCat }) => {
       );
       setCats((prevCats) =>
         prevCats.map((c) =>
-          c._id === cat._id ? { ...cat, favorited: !cat.favorited } : cat
+          c._id === cat._id ? { ...c, favorited: !c.favorited } : c
         )
       );
     } catch (error) {

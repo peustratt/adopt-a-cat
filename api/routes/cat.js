@@ -24,7 +24,7 @@ router
     Promise.resolve()
       .then(() => new Cat(req.body).save())
       .then((data) => res.status(201).json(data))
-      .then((err) => next(err))
+      .catch((err) => next(err))
   );
 
 router
@@ -41,7 +41,7 @@ router
     Promise.resolve()
       .then(() => Cat.findByIdAndDelete(req.params.id))
       .then((data) => res.status(200).json({ message: "Deleted" }))
-      .then((err) => next(err))
+      .catch((err) => next(err))
   );
 
 router.route("/favorite/:id").get((req, res, next) =>
