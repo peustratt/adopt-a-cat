@@ -6,7 +6,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 
 const { Connection } = require("./models");
-const { Cat } = require("./routes");
+const { Cat, Tag } = require("./routes");
 
 const app = express();
 app.use(cors());
@@ -23,6 +23,7 @@ app.use((req, res, next) =>
 
 // Routes
 app.use("/api/cats", Cat);
+app.use('/api/tags', Tag);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
