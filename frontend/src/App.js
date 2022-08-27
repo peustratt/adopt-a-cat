@@ -11,10 +11,8 @@ function App() {
   const [isAddingCat, setIsAddingCat] = useState(false);
 
   const handleDeleteCat = async (id) => {
-    console.log("called");
     try {
       const response = await server.delete(`/cats/${id}`);
-      console.log("resposta", response);
       setCats(cats.filter((cat) => cat._id !== id));
     } catch (error) {
       console.log(error);
@@ -33,7 +31,6 @@ function App() {
     getCats();
   }, []);
 
-  console.log(cats);
   const catsEl = cats.map((cat) => (
     <Cat
       key={cat._id}

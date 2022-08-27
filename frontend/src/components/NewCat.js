@@ -39,7 +39,6 @@ const NewCat = ({ setCats, setIsAddingCat }) => {
   };
 
   const handleSelecteTag = (id) => {
-    console.log("cliek");
     setTags((prevTags) =>
       prevTags.map((tag) =>
         tag._id === id ? { ...tag, selected: !tag.selected } : tag
@@ -61,6 +60,7 @@ const NewCat = ({ setCats, setIsAddingCat }) => {
       <div className="tags">
         {tags.map((tag) => (
           <StyledTag
+            key={tag._id}
             onClick={() => handleSelecteTag(tag._id)}
             isSelected={tag.selected}
             className="tag"

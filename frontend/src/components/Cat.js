@@ -29,7 +29,7 @@ const Cat = ({ cat, setCats, handleDeleteCat }) => {
         <p>Added Date: {`${day}/${month}/${year}`}</p>
         <ul className="tags">
           {cat.tags.map((tag) => (
-            <li>{tag.description}</li>
+            <li key={tag._id}>{tag.description}</li>
           ))}
         </ul>
       </div>
