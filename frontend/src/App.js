@@ -12,7 +12,7 @@ function App() {
 
   const handleDeleteCat = async (id) => {
     try {
-      const response = await server.delete(`/cats/${id}`);
+      await server.delete(`/cats/${id}`);
       setCats(cats.filter((cat) => cat._id !== id));
     } catch (error) {
       console.log(error);
