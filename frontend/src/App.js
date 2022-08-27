@@ -8,6 +8,8 @@ import NewCat from "./components/NewCat";
 
 function App() {
   const [cats, setCats] = useState([]);
+  const [isAddingCat, setIsAddingCat] = useState(false);
+
   const handleDeleteCat = async (id) => {
     console.log("called");
     try {
@@ -33,7 +35,12 @@ function App() {
 
   console.log(cats);
   const catsEl = cats.map((cat) => (
-    <Cat key={cat._id} cat={cat} setCats={setCats} handleDeleteCat={handleDeleteCat} />
+    <Cat
+      key={cat._id}
+      cat={cat}
+      setCats={setCats}
+      handleDeleteCat={handleDeleteCat}
+    />
   ));
   return (
     <ThemeProvider theme={theme}>
@@ -42,13 +49,13 @@ function App() {
         <div className="cats-wrapper">
           <div className="top-bar">
             <h2>Cats List</h2>
-            <button>Add new Cat</button>
+            <button onClick={() => setIsAddingCat((prev) => !prev)}>
+              Add new Cat
+            </button>
           </div>
           <div className="cats">{catsEl}</div>
         </div>
-        <div>
-          <NewCat setCats={setCats} />
-        </div>
+        <div>{isAddingCat && <NewCat setCats={setCats} setIsAddingCat={setIsAddingCat}/>}</div>
       </AppStyled>
     </ThemeProvider>
   );

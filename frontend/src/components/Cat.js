@@ -83,10 +83,12 @@ const CatContainer = styled.div`
 
   .tags {
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
+    gap: 5px;
 
     li {
-      background: blue;
+      background: #4267B2;
       color: white;
       border-radius: 10px;
       font-size: 14px;
