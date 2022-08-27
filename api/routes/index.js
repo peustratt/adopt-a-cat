@@ -1,0 +1,1 @@
+exports.Cat = require('./cat');
